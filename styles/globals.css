@@ -11,3 +11,18 @@
     clip-path: polygon(0 0, 100% 0, 100% 70%, 0 70%);
   }
 }
+
+
+/** enter from top to bottom with clip-path */
+.transition {
+  transition: all .4s ease-in-out;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.enterTransition {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+}
+
+.outTransation {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0) !important;
+}

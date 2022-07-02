@@ -5,41 +5,47 @@ import { ActionButton } from "./ActionButton.component";
 import { FaRegCommentDots } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 
-export const Post = () => {
+export const Post = ({
+  e
+}:any) => {
   const [isOpen, setIsOpen] = useState(false);
-  const description = `
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque euismod, nisi eu consectetur consectetur, nisl
-            nisi consectetur nisl, eu consectetur nisl nisi euismod nisl.
-                `;
+  const description = e.description;
   const text1 = description.slice(0, 100);
-  const getRandomNumberBetween = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
+
   return (
     <Box mb={6} bg="white">
       <Box
+        position="relative"
         minH="260px"
-        bgImage={`https://picsum.photos/id/${getRandomNumberBetween(
-          1,
-          10
-        )}/400/400`}
-      />
+        bgImage={`https://picsum.photos/id/${e.id + 500}/400/400`}
+      >
+        <Box
+          bg="rgba(0,0,0,0.7)"
+          color="white"
+          fontWeight={500}
+          fontSize="sm"
+          p={2}
+        >
+          {e.date}
+        </Box>
+      </Box>
       <Grid templateColumns="1fr .4fr">
         <Box p={4}>
           <Text fontWeight="bold" fontSize="2xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            {e.title}
           </Text>
         </Box>
-        <Button px={4} mr={4} mt={8} bg="#1994d7" color="white">
-          Participar
-        </Button>
+        <Box>
+          <Button px={4} mr={4} mt={8} bg="#1994d7" color="white">
+            Participar
+          </Button>
+        </Box>
       </Grid>
       {!isOpen && (
-        <Text px={4}>{text1.slice(0, !isOpen ? 100 : undefined)}...</Text>
+        <Text mt={3} px={4}>{text1.slice(0, !isOpen ? 100 : undefined)}...</Text>
       )}
       <Collapse in={isOpen}>
-        <Box px={4} pb={4}>
+        <Box px={4} pb={4} mt={3}> 
           {description}
         </Box>
       </Collapse>
@@ -58,6 +64,7 @@ export const Post = () => {
         {isOpen ? <BiChevronUp /> : <BiChevronDown />}
       </Button>
       <Grid py={4} templateColumns="1fr 1fr 1fr">
+
         <ActionButton w="100%">
           <BiHeart />
         </ActionButton>
@@ -69,6 +76,7 @@ export const Post = () => {
         <ActionButton w="100%">
           <FiSend />
         </ActionButton>
+
       </Grid>
     </Box>
   );

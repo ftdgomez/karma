@@ -5,7 +5,7 @@ import { CategoryButton } from "../../components/CategoryButton.component";
 import { MainLayout } from "../../components/MainLayout.component";
 import { API_URL } from "../../constants";
 
-function Discover({ data }:any) {
+function Discover({ data }: any) {
   return (
     <MainLayout
       header={

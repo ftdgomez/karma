@@ -1,11 +1,14 @@
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
-import '../styles/globals.css'
+import { RouteChangeHandler } from "../components/RouteChangeHandler";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
-      <Component {...pageProps} />
+      <RouteChangeHandler>
+        <Component {...pageProps} />
+      </RouteChangeHandler>
     </ChakraProvider>
   );
 }
