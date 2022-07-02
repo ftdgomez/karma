@@ -12,7 +12,7 @@ export const Navbar = () => {
       borderTop="1px solid #e1e1e1"
       templateColumns="1fr 1fr 1fr 1fr"
     >
-      <Link href="/" passHref>
+      <Link href="/user" passHref>
         <Center>
           <ActionButton as="a">
             <FaCompass />
@@ -20,7 +20,7 @@ export const Navbar = () => {
         </Center>
       </Link>
 
-      <Link href="/discover" passHref>
+      <Link href="/user/discover" passHref>
         <Center>
           <ActionButton as="a">
             <BiSearchAlt />
@@ -28,7 +28,7 @@ export const Navbar = () => {
         </Center>
       </Link>
 
-      <Link href="/charts" passHref>
+      <Link href="/user/charts" passHref>
         <Center>
           <ActionButton as="a">
             <IoStatsChartSharp />
@@ -36,7 +36,7 @@ export const Navbar = () => {
         </Center>
       </Link>
 
-      <Link href="/profile" passHref>
+      <Link href="/user/profile" passHref>
         <Center>
           <ActionButton as="a">
             <FaUser />
