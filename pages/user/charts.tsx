@@ -1,6 +1,6 @@
 import { Box, Center, Text } from "@chakra-ui/react";
-import { ContributorItem } from "../components/ContributorItem.component";
-import { MainLayout } from "../components/MainLayout.component";
+import { ContributorItem } from "../../components/ContributorItem.component";
+import { MainLayout } from "../../components/MainLayout.component";
 
 function Charts() {
   return (
@@ -61,7 +61,7 @@ function Charts() {
         </svg>
       </Center>
       <Box p={4}>
-        <Text mb={4} fontSize="24px" fontWeight="bold">Top contributors of the week</Text>
+        <Text mb={4} fontSize="24px" fontWeight="bold">Top contributors of the month</Text>
         <ContributorItem />
         <ContributorItem />
         <ContributorItem />

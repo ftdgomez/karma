@@ -1,9 +1,9 @@
-import { Box, Center, Grid } from "@chakra-ui/react";
+import { Center, Grid } from "@chakra-ui/react";
+import Link from "next/link";
 import { BiSearchAlt } from "react-icons/bi";
 import { FaCompass, FaUser } from "react-icons/fa";
 import { IoStatsChartSharp } from "react-icons/io5";
 import { ActionButton } from "./ActionButton.component";
-import Link from "next/link";
 
 export const Navbar = () => {
   return (

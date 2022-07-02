@@ -7,7 +7,7 @@ export const CategoryButton = () => {
             <Box>
                 <Text fontWeight="bold">Nombre de categoria</Text>
                 <Text>9.8 mil han participado en esta categoria</Text>
-            </Box>
+            </Box>kj
         </Grid>
     );
 };

@@ -1,22 +1,27 @@
-import type { NextPage } from "next";
-import { MainLayout } from "../components/MainLayout.component";
-import { Post } from "../components/Post.component";
-import Image from "next/image";
-import { Center } from "@chakra-ui/react";
+/* eslint-disable @next/next/no-img-element */
+import { Box, Button, Center, Divider } from "@chakra-ui/react";
+import Link from "next/link";
 
-const Home: NextPage = () => {
+function Page() {
   return (
-    <MainLayout>
-      <Center py={3} bg="#1994d7">
-        <Image alt="Karma Logo" src="/logo.png" width="240px" height="64px" />
-      </Center>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-    </MainLayout>
+    <Center bg="blue.400" h="100vh" flexDir="column">
+      <Box mx={4}>
+        <img src="/logo.png" alt="xxx" />
+      </Box>
+      <Divider h="3px" my={2} />
+      <Link href="/user" passHref>
+        <Button bgColor="blue.800" color="white">
+          Vista usuario
+        </Button>
+      </Link>
+      <Divider h="3px" my={2} />
+      <Link href="/organizer" passHref>
+        <Button bgColor="blue.800" color="white">
+          Vista organizador
+        </Button>
+      </Link>
+    </Center>
   );
-};
+}
 
-export default Home;
+export default Page;

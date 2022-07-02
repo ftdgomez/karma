@@ -2,26 +2,14 @@ import {
   Box,
   Button,
   Center,
-  Circle,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  Flex,
-  Grid,
-  Input,
-  Text,
+  Circle, Flex,
+  Grid, Text
 } from "@chakra-ui/react";
-import { useState } from "react";
 import type { NextPage } from "next";
-import { HistoryItem } from "../components/HistoryItem.component";
-import { MainLayout } from "../components/MainLayout.component";
-import { ActionButton } from "../components/ActionButton.component";
-import { BiMenu } from "react-icons/bi";
-import { FormInput } from "../components/FormControl.component";
+import { useState } from "react";
+import { FormInput } from "../../components/FormControl.component";
+import { HistoryItem } from "../../components/HistoryItem.component";
+import { MainLayout } from "../../components/MainLayout.component";
 
 const Home: NextPage = () => {
   const [editMode, setEditMode] = useState(false);

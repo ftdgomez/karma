@@ -1,8 +1,8 @@
-import { Box, Center, Flex, Grid, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { BiSearch } from "react-icons/bi";
-import { CategoryButton } from "../components/CategoryButton.component";
-import { MainLayout } from "../components/MainLayout.component";
+import { CategoryButton } from "../../components/CategoryButton.component";
+import { MainLayout } from "../../components/MainLayout.component";
 
 function Discover() {
   return (
