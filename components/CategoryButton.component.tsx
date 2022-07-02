@@ -1,13 +1,23 @@
-import { Box, Grid, Text } from "@chakra-ui/react";
+import { Box, Center, Grid, Text } from "@chakra-ui/react";
+import { BiChevronRight, BiChevronRightSquare } from "react-icons/bi";
 
-export const CategoryButton = () => {
-    return (
-        <Grid mb={4} alignItems="center" mx={4} templateColumns="64px 1fr" gap={4}>
-            <Box w="64px" h="64px" bg="blue" />
-            <Box>
-                <Text fontWeight="bold">Nombre de categoria</Text>
-                <Text>9.8 mil han participado en esta categoria</Text>
-            </Box>kj
-        </Grid>
-    );
+export const CategoryButton = ({ cat }: any) => {
+  return (
+    <Grid
+      mx={4}
+      p={4}
+      mb={4}
+      rounded="md"
+      bg="blue.100"
+      templateColumns="1fr 80px"
+    >
+      <Box>
+        <Text fontSize="21px" mb={2} fontWeight="bold">{cat.name}</Text>
+        <Text fontSize="sm">{cat.text}</Text>
+      </Box>
+      <Center fontSize="2rem">
+        <BiChevronRight />
+      </Center>
+    </Grid>
+  );
 };

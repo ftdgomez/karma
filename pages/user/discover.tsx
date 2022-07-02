@@ -3,8 +3,9 @@ import Image from "next/image";
 import { BiSearch } from "react-icons/bi";
 import { CategoryButton } from "../../components/CategoryButton.component";
 import { MainLayout } from "../../components/MainLayout.component";
+import { API_URL } from "../../constants";
 
-function Discover() {
+function Discover({ data }) {
   return (
     <MainLayout
       header={
@@ -18,7 +19,12 @@ function Discover() {
             Explorar
           </Text>
           <Box height="52px" w="52px">
-            <Image src="/icon2.png" height="52px" width="52px" alt="logo icon" />
+            <Image
+              src="/icon2.png"
+              height="52px"
+              width="52px"
+              alt="logo icon"
+            />
           </Box>
         </Flex>
       }
@@ -37,15 +43,21 @@ function Discover() {
       <Text mb={4} fontSize="24px" fontWeight="bold" mx={4}>
         Categorias
       </Text>
-      <CategoryButton />
-      <CategoryButton />
-      <CategoryButton />
-      <CategoryButton />
-      <CategoryButton />
-      <CategoryButton />
-      <CategoryButton />
+      {data.map((cat: any) => (
+        <CategoryButton key={cat.name} cat={cat} />
+      ))}
     </MainLayout>
   );
+}
+
+export async function getServerSideProps() {
+  const { data, error } = await (await fetch(`${API_URL}/categories`)).json();
+  return {
+    props: {
+      data,
+      error,
+    },
+  };
 }
 
 export default Discover;
