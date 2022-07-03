@@ -35,6 +35,17 @@ export const ONavbar = () => {
           </ActionButton>
         </Center>
       </Link>
+      
+      {/*
+      TODO: add activity button
+      <Link href="/organizer/profile" passHref>
+        <Center>
+          <ActionButton as="a">
+            <BiBuildings />
+          </ActionButton>
+        </Center>
+      </Link> */}
+
     </Grid>
   );
 };

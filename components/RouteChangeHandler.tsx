@@ -27,7 +27,7 @@ export function RouteChangeHandler({ children }: { children: any }) {
 
   return (
     <>
-      <ChangeRouteTransition loading={loading} />
+      {loading && <ChangeRouteTransition />}
       {children}
     </>
   );

@@ -1,10 +1,8 @@
 import { Box } from "@chakra-ui/react";
 
-export const ChangeRouteTransition = ({ loading }: any) => {
+export const ChangeRouteTransition = () => {
   return (
     <Box
-      className={`transition ${loading ? "enterTransition" : "outTransition"}`}
-      bg="white"
       zIndex={9999999}
       position="fixed"
       top="0"

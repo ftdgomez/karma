@@ -1,4 +1,4 @@
-import { Center } from "@chakra-ui/react";
+import { Center, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Image from "next/image";
 import { MainLayout } from "../../components/MainLayout.component";
@@ -11,6 +11,18 @@ const Home: NextPage = ({ data }: any) => {
       <Center py={3} bg="#1994d7">
         <Image alt="Karma Logo" src="/logo.png" width="240px" height="64px" />
       </Center>
+      {
+        data.length === 0 && (
+          <Center flexDir="column" minH="80vh" textAlign="center">
+            <Text fontSize="24px" fontWeight="bold" mx={4}>
+              Oh No!
+            </Text>
+            <Text mx={4}>
+              Parece que no hay eventos disponibles por el momento
+            </Text>
+          </Center>
+        )
+      }
       {
         data.map((event:any) => (
           <Post key={event.id} e={event} />

@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { BiSearch } from "react-icons/bi";
 import { CategoryButton } from "../../components/CategoryButton.component";
@@ -43,6 +43,16 @@ function Discover({ data }: any) {
       <Text mb={4} fontSize="24px" fontWeight="bold" mx={4}>
         Categorias
       </Text>
+      {data.length === 0 && (
+        <Center flexDir="column" minH="80vh" textAlign="center">
+          <Text fontSize="24px" fontWeight="bold" mx={4}>
+            Oh No!
+          </Text>
+          <Text mx={4}>
+            Parece que no hay categorias disponibles por el momento
+          </Text>
+        </Center>
+      )}
       {data.map((cat: any) => (
         <CategoryButton key={cat.name} cat={cat} />
       ))}
