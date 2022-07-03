@@ -2,7 +2,7 @@ import { Box, Center, Grid, Text } from "@chakra-ui/react";
 import { BiChevronRight } from "react-icons/bi";
 import { TbCertificate } from "react-icons/tb";
 
-export const HistoryItem = () => {
+export const HistoryItem = ({}:any) => {
   return (
     <Box px={4} py={2} bg="blue.100" mx={4} mb={4} rounded="md">
       <Grid alignItems="center" mb={4} templateColumns="60px 1fr 60px">

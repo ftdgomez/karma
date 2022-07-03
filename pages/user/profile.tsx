@@ -167,8 +167,8 @@ const Home: NextPage = () => {
       >
         Cargar Historial
       </Button>
-      {eventsHistory.map((event) => (
-        <HistoryItem key={event.id} event={event} />
+      {eventsHistory.map((event: any) => (
+        <HistoryItem key={event} event={event} />
       ))}
     </MainLayout>
   );
