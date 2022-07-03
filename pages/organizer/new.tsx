@@ -10,6 +10,11 @@ import { API_URL } from "../../constants";
 import { supabase } from "../../supabaseClient";
 import { getLocalUser } from "../../utils/getLocalUser";
 
+
+function generateRandomHash() {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+}
+
 function Page() {
   const toast = useToast();
   const initialValue: AppEvent = {
@@ -46,7 +51,7 @@ function Page() {
           const file = files[i] as any;
           const { data, error } = await supabase.storage
             .from("public")
-            .upload(`file-${Date.now()}-${file.name}`, file);
+            .upload(`file-${Date.now()}-${generateRandomHash()}`, file);
           console.log("for:error: ", error);
           if (data) {
             filesUploadedUrls.push(data.Key);

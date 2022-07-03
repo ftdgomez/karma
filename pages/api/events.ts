@@ -7,9 +7,12 @@ export default async function handler(
   res: NextApiResponse<any>
 ) {
   if (req.method === "GET") {
-    const { data, error } = await supabase
-      .from("appEvent")
+    const query = supabase.from("appEvent")
       .select("*, userId (*)");
+    if (req.query.userId) {
+      query.match({ userId: req.query.userId });
+    }
+    const { data, error } = await query
     return res.status(200).json({ data, error });
   }
   if (req.method === "POST") {

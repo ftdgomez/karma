@@ -13,8 +13,9 @@ export const Post = ({
   const text1 = description.slice(0, 100);
 
   return (
-    <Box mb={6} bg="white">
+    <Box mb={6} bg="white" onClick={() => console.log(e)}>
       <Box
+        id={`post-${e.id}`}
         position="relative"
         minH="260px"
         bgImage={e.image?.length > 0 ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${e.image[0]}` : `https://picsum.photos/id/${e.id + 500}/400/400`}
