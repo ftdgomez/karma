@@ -10,8 +10,11 @@ import {
   Switch,
   Textarea,
   useConst,
+  useToast,
 } from "@chakra-ui/react";
+import axios from "axios";
 import { ReactNode } from "react";
+import { API_URL } from "../constants";
 
 function generateRandomId() {
   return (
@@ -67,6 +70,7 @@ export const FormInput = ({
   labelStyles = {},
 }: FormControlProps) => {
   const id = useConst(generateRandomId());
+  const toast = useToast();
 
   const inputProps = {
     required,
@@ -77,11 +81,10 @@ export const FormInput = ({
     placeholder: placeholder ? placeholder : label,
     disabled,
   };
-
+  
   return (
     <ChakraFormControl
       id={`${id}-form-control`}
-      w="calc(100% - 32px)"
       rounded="md"
       mb={4}
       {...containerStyles}

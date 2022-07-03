@@ -18,18 +18,21 @@ export default async function handler(
 ) {
     if (req.method === 'POST') {
         const { username } = req.body;
-        const { data:userFromDb, error:errorGettingUserFromDb } =
+        const { data:userFromDb, error:errorGettingUserFromDb }: any =
             await supabase.from('appUser').select('*').match({ username });
         if (!errorGettingUserFromDb) {
             const { password, id } = Array.isArray(userFromDb) ? userFromDb[0] : userFromDb;
             if (comparePassword(req.body.password, password)) {
-                const {data:profileData, error: errorGettingProfileData} = await supabase.from('userProfile').select('*').match({userId: id});
-                if (!errorGettingProfileData) {
+                const table = (Array.isArray(userFromDb) ? userFromDb[0] : userFromDb).role === 'user' ? 'userProfile' : 'organizerProfile';
+                const {data:profileData, error: errorGettingProfileData} = await supabase.from(table).select('*').match({userId: id});
+                if (profileData) {
                     return res.status(200).json({
                         user: Array.isArray(userFromDb) ? userFromDb[0] : userFromDb,
                         profile: Array.isArray(profileData) ? profileData[0] : profileData,
                         token: generateJwtToken(Array.isArray(profileData) ? profileData[0] : profileData as UserProfile)
                     })
+                }else {
+                    console.log(errorGettingProfileData, profileData)
                 }
             }
         }

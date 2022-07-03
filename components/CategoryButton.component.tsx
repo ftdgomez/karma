@@ -13,7 +13,7 @@ export const CategoryButton = ({ cat }: any) => {
     >
       <Box>
         <Text fontSize="21px" mb={2} fontWeight="bold">{cat.name}</Text>
-        <Text fontSize="sm">{cat.text}</Text>
+        <Text fontSize="sm">{cat.description}</Text>
       </Box>
       <Center fontSize="2rem">
         <BiChevronRight />

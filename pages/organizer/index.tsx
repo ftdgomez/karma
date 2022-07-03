@@ -2,6 +2,7 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { eventDefaultValue, OEvent } from "../../components/OEvent.component";
 import { OLayout } from "../../components/OrganizerLayout.component";
+// import { API_URL } from "../../constants";
 
 function Page() {
   return (
@@ -37,5 +38,15 @@ function Page() {
     </OLayout>
   );
 }
+
+// export async function getServerSideProps() {
+//   const { data } = await (await fetch(`${API_URL}/api/events?userId=9`)).json();
+//   console.log(data)
+//   return {
+//     props: {
+
+//     }
+//   }
+// }
 
 export default Page;

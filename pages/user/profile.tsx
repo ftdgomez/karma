@@ -103,6 +103,7 @@ const Home: NextPage = () => {
         />
       </Grid>
       <Box px={4}>
+
         <FormInput
           value={values.email}
           disabled={!editMode}
@@ -166,8 +167,8 @@ const Home: NextPage = () => {
       >
         Cargar Historial
       </Button>
-      {eventsHistory.map((event) => (
-        <HistoryItem key={event.id} event={event} />
+      {eventsHistory.map((event: any) => (
+        <HistoryItem key={event} event={event} />
       ))}
     </MainLayout>
   );

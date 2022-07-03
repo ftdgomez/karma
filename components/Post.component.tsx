@@ -13,11 +13,14 @@ export const Post = ({
   const text1 = description.slice(0, 100);
 
   return (
-    <Box mb={6} bg="white">
+    <Box mb={6} bg="white" onClick={() => console.log(e)}>
       <Box
+        id={`post-${e.id}`}
         position="relative"
         minH="260px"
-        bgImage={`https://picsum.photos/id/${e.id + 500}/400/400`}
+        bgImage={e.image?.length > 0 ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${e.image[0]}` : `https://picsum.photos/id/${e.id + 500}/400/400`}
+        bgPosition="center"
+        bgSize="cover"
       >
         <Box
           bg="rgba(0,0,0,0.7)"
@@ -36,8 +39,8 @@ export const Post = ({
           </Text>
         </Box>
         <Box>
-          <Button px={4} mr={4} mt={8} bg="#1994d7" color="white">
-            Participar
+          <Button px={4} mr={4} mt={8} bg={e.type !== 'event' ? 'red.600' : '#1994d7'} color="white">
+            {e.type === 'event' ? 'Participar' : 'Donar'}
           </Button>
         </Box>
       </Grid>
