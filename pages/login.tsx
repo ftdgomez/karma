@@ -38,7 +38,11 @@ function Page() {
           duration: 9000,
           isClosable: true,
         });
-        router.push("/user");
+        if (data.user.role === 'user') {
+          router.push("/user");
+        } else {
+          router.push("/organizer");
+        }
       }
     } catch (error) {
         console.log('error', error)

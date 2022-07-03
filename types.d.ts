@@ -67,6 +67,9 @@ interface AppEvent {
     metadata?: AppEventMetadata
     qrCode?: string;
     limitPerson: number;
+    status: boolean,
+    type: 'event' | 'recollection'
+    goal: number;
 }
 
 interface Comments {
@@ -84,20 +87,6 @@ interface SavedBucket {
 }
 
 interface AppEventMetadata {}
-
-interface Recollection {
-    id: number;
-    userId: number;
-    title: string;
-    description: string;
-    image: string;
-    amount: number;
-    expirationDate: string;
-    tags: string[];
-    location: string;
-    qrCode: string;
-    status: 'open' | 'closed';
-}
 
 interface Categories {
     id: number;

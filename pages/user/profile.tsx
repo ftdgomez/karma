@@ -103,6 +103,7 @@ const Home: NextPage = () => {
         />
       </Grid>
       <Box px={4}>
+
         <FormInput
           value={values.email}
           disabled={!editMode}
